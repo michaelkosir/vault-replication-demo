@@ -4,7 +4,7 @@ This repository will spin up three Vault clusters, and configure them together u
 
 # Usage
 ### Settings
-A Vault Enterprise license is required for this demo. Add the license in the .env file under `VAULT_LICENSE`. You can also select a specific version of Vault using `VAULT_VERSION`.
+A Vault Enterprise license is required for this demo. Add the license in the `.env` file under `VAULT_LICENSE`. You can also select a specific version of Vault using `VAULT_VERSION`.
 ```shell
 vim .env
 ```
