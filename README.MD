@@ -9,7 +9,7 @@ A Vault Enterprise license is required for this demo. Add the license in the `.e
 vim .env
 ```
 
-### General
+### Vault
 Create the Vault clusters in Docker. Enable and configure enterprise replication with the included scripts.
 ```shell
 docker compose up -d
