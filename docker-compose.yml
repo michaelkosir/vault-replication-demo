@@ -1,0 +1,46 @@
+services:
+  vault_primary:
+    image: "hashicorp/vault-enterprise:${VAULT_VERSION}-ent"
+    container_name: vault-primary
+    cap_add:
+      - IPC_LOCK
+    environment:
+      VAULT_LOCAL_CONFIG: "${VAULT_LOCAL_CONFIG}"
+      VAULT_LICENSE: "${VAULT_LICENSE}"
+    command: server
+    ports:
+      - "8200:8200"
+    networks:
+      - bridge
+
+  vault_dr:
+    image: "hashicorp/vault-enterprise:${VAULT_VERSION}-ent"
+    container_name: vault-dr
+    cap_add:
+      - IPC_LOCK
+    environment:
+      VAULT_LOCAL_CONFIG: "${VAULT_LOCAL_CONFIG}"
+      VAULT_LICENSE: "${VAULT_LICENSE}"
+    command: server
+    ports:
+      - "8300:8200"
+    networks:
+      - bridge
+
+  vault_performance:
+    image: "hashicorp/vault-enterprise:${VAULT_VERSION}-ent"
+    container_name: vault-performance
+    cap_add:
+      - IPC_LOCK
+    environment:
+      VAULT_LOCAL_CONFIG: "${VAULT_LOCAL_CONFIG}"
+      VAULT_LICENSE: "${VAULT_LICENSE}"
+    command: server
+    ports:
+      - "8400:8200"
+    networks:
+      - bridge
+
+networks:
+  bridge:
+    driver: bridge
